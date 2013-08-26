@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '3.8'
+version = '3.8-0400427ecc86b529598f32b0ece2a855af93a4b6'
 
 setup(name='jarn.mkrelease',
       version=version,
@@ -36,4 +36,4 @@ setup(name='jarn.mkrelease',
       entry_points={
           'console_scripts': 'mkrelease=jarn.mkrelease.mkrelease:main',
       },
-)
+      )
