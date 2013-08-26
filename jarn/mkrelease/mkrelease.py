@@ -444,7 +444,7 @@ class ReleaseMaker(object):
 
             if not self.skiptag:
                 print 'Tagging', name, version
-                tagid = self.scm.make_tagid(directory, version)
+                tagid = self.scm.make_tagid(directory, name, version)
                 self.scm.check_tag_exists(directory, tagid)
                 self.scm.create_tag(directory, tagid, name, version, self.push)
 

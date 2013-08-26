@@ -605,8 +605,8 @@ class Git(SCM):
             err_exit('Checkout failed')
         return rc
 
-    def make_tagid(self, dir, version):
-        return version
+    def make_tagid(self, dir, name, version):
+        return '%s/%s' % (name, version)
 
     @chdir
     def tag_exists(self, dir, tagid):
@@ -622,7 +622,7 @@ class Git(SCM):
     @chdir
     def create_tag(self, dir, tagid, name, version, push):
         rc = self.process.system(
-            'git tag -m"Tagged %(name)s %(version)s." "%(tagid)s"' % locals())
+            'git tag -m"Tagged %(name)s %(version)s." -a "%(tagid)s"' % locals())
         if rc != 0:
             err_exit('Tag failed')
         if push:
